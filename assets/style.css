@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+}
+
+aside {
+  float: left;
+}
+
+#title-header {
+  align-items: center;
+}
+
+#city-search {
+  border-width: 1px;
+  border-style: solid;
+  border-color: blue;
+  padding: 25px;
+}
