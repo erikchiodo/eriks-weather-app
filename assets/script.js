@@ -108,12 +108,19 @@ $(function () {
     // encode cityArray back into localStorage under "cities"
     localStorage.setItem("cities", JSON.stringify(cityArray));
 
+    console.log(cityArray);
     // Calling Method to create City button with cities added to Local Storage
 
     showCities(cityArray);
   }
 
-  function showCities(localcities) {}
+  function showCities(cities) {
+    for (var i = 0; i < cities.length; i++) {
+      var cityButton = `
+        <button>${cities[i]}</button>`;
+      searchResult.append(cityButton);
+    }
+  }
 
   $("#submit-btn").on("click", function (event) {
     event.preventDefault();
