@@ -85,11 +85,42 @@ $(function () {
     }
   }
 
+  // addCityToLocal takes in a string and returns nothing
+  // This function is designed to add the searched city to an array in localStorage called cities
+  // If the city is already there, then the city will not be added.
+  function addCityToLocal(city) {
+    var localCities = localStorage.getItem("cities");
+
+    // if localCities is null, create a empty cityArray. else, parse current cityArray (value from key)
+    if (localCities == null) {
+      // Add empty array cities to local storage
+      var cityArray = [];
+    } else {
+      //get cityArray from localStorage json
+      // Parse localCities to city array - fix this syntax
+      var cityArray = JSON.parse(localCities);
+    }
+
+    // If city is not contained in cityArray, then add city to cityArray.
+    if (!cityArray.includes(city)) {
+      cityArray.push(city);
+    }
+    // encode cityArray back into localStorage under "cities"
+    localStorage.setItem("cities", JSON.stringify(cityArray));
+
+    // Calling Method to create City button with cities added to Local Storage
+
+    showCities(cityArray);
+  }
+
+  function showCities(localcities) {}
+
   $("#submit-btn").on("click", function (event) {
     event.preventDefault();
     var city = searchCity.val();
     console.log(city);
     if (city) {
+      addCityToLocal(city);
       getGeoCode(city);
     } else if (city === "") {
       alert("Please Try again");
