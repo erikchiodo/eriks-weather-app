@@ -60,12 +60,12 @@ $(function () {
     currentCityDate.text(
       currentData.city.name + " " + "(" + currentDay.format("MM/DD/YY") + ")"
     );
-    // currentDayIcon.attr(
-    //   "src",
-    //   +"http://openweathermap.org/img/wn/" +
-    //     weatherData.weather[0].icon +
-    //     "@2px.png"
-    // );
+    currentDayIcon.attr(
+      "src",
+      "http://openweathermap.org/img/wn/" +
+        currentData.list[0].weather[0].icon +
+        "@2x.png"
+    );
     currentTemp.text("Temp:" + currentData.list[0].main.temp + "°F");
     currentWind.text("Wind:" + currentData.list[0].wind.speed + "MPH");
     currentHumidity.text("Humidity:" + currentData.list[0].main.humidity + "%");
@@ -73,14 +73,15 @@ $(function () {
 
   function getFiveDayFore(fiveDayData) {
     console.log(fiveDayData);
-    for (day = 0; fiveDayData.list[day] < 5; day++) {
+    for (var day = 7; day <= 39; day += 8) {
+      console.log(fiveDayData.list[day]);
       var eachDay = `
         <div id="day-one" class="col-12 col-lg-2">
         <p>Temp:${fiveDayData.list[day].main.temp}</p>
           <p>Wind:${fiveDayData.list[day].wind.speed}</p>
           <p>Humidity:${fiveDayData.list[day].main.humidity}</p>
         </div>`;
-      $("#five-day-forecast").html(eachDay);
+      $("#five-day-forecast").append(eachDay);
     }
   }
 
