@@ -1,16 +1,16 @@
-var currentDay = dayjs();
-var currentTemp = $("#current-temp");
-var currentWind = $("#current-wind");
-var currentHumidity = $("#current-humidity");
-var searchResult = $("#search-result");
-var searchCity = $("#search-city");
-var currentCityDate = $("#current-city-date");
-var currentDayIcon = $("#current-icon");
-console.log(searchCity);
-
-// testUrl = http://api.openweathermap.org/geo/1.0/direct?q=NewYork&appid=ba368f94dc661d16d9e70c0b63cd68a9
-
 $(function () {
+  var currentDay = dayjs();
+  var currentTemp = $("#current-temp");
+  var currentWind = $("#current-wind");
+  var currentHumidity = $("#current-humidity");
+  var searchResult = $("#search-result");
+  var searchCity = $("#search-city");
+  var currentCityDate = $("#current-city-date");
+  var currentDayIcon = $("#current-icon");
+  var localCities = JSON.parse(localStorage.getItem("cities")) || [];
+
+  // testUrl = http://api.openweathermap.org/geo/1.0/direct?q=NewYork&appid=ba368f94dc661d16d9e70c0b63cd68a9
+
   function getGeoCode(city) {
     var geoURL =
       "http://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -73,10 +73,18 @@ $(function () {
 
   function getFiveDayFore(fiveDayData) {
     console.log(fiveDayData);
+    $("#five-day-forecast").html("");
     for (var day = 7; day <= 39; day += 8) {
-      console.log(fiveDayData.list[day]);
+      var fiveDayDate = fiveDayData.list[day].dt_txt;
       var eachDay = `
         <div id="day-one" class="col-12 col-lg-2">
+      
+      <h2 id="current-fore-city">${fiveDayDate.split(" ")[0]}</h2>
+      <img src="${
+        "http://openweathermap.org/img/wn/" +
+        fiveDayData.list[day].weather[0].icon +
+        "@2x.png"
+      }" alt="">
         <p>Temp:${fiveDayData.list[day].main.temp}</p>
           <p>Wind:${fiveDayData.list[day].wind.speed}</p>
           <p>Humidity:${fiveDayData.list[day].main.humidity}</p>
@@ -89,42 +97,26 @@ $(function () {
   // This function is designed to add the searched city to an array in localStorage called cities
   // If the city is already there, then the city will not be added.
   function addCityToLocal(city) {
-    var localCities = localStorage.getItem("cities");
-
-    // if localCities is null, create a empty cityArray. else, parse current cityArray (value from key)
-    if (localCities == null) {
-      // Add empty array cities to local storage
-      var cityArray = [];
-    } else {
-      //get cityArray from localStorage json
-      // Parse localCities to city array - fix this syntax
-      var cityArray = JSON.parse(localCities);
+    if (!localCities.includes(city)) {
+      localCities.push(city);
     }
 
-    // If city is not contained in cityArray, then add city to cityArray.
-    if (!cityArray.includes(city)) {
-      cityArray.push(city);
-    }
-    // encode cityArray back into localStorage under "cities"
-    localStorage.setItem("cities", JSON.stringify(cityArray));
-
-    console.log(cityArray);
-    // Calling Method to create City button with cities added to Local Storage
-
-    showCities(cityArray);
+    localStorage.setItem("cities", JSON.stringify(localCities));
+    console.log(localCities);
   }
 
-  function showCities(cities) {
-    for (var i = 0; i < cities.length; i++) {
+  function showCities() {
+    searchResult.html("");
+    for (var i = 0; i < localCities.length; i++) {
       var cityButton = `
-        <button>${cities[i]}</button>`;
+        <button class = "city-btn btn btn-light">${localCities[i]}</button>
+        <br>`;
       searchResult.append(cityButton);
     }
   }
+  showCities();
 
-  $("#submit-btn").on("click", function (event) {
-    event.preventDefault();
-    var city = searchCity.val();
+  function start(city) {
     console.log(city);
     if (city) {
       addCityToLocal(city);
@@ -132,5 +124,18 @@ $(function () {
     } else if (city === "") {
       alert("Please Try again");
     }
+  }
+
+  $("#submit-btn").on("click", function (event) {
+    event.preventDefault();
+    var city = searchCity.val();
+    start(city);
+  });
+
+  var cityButton = $(".city-btn");
+  cityButton.on("click", function (event) {
+    event.stopPropagation();
+    var cityText = event.target.textContent;
+    start(cityText);
   });
 });

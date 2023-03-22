@@ -16,3 +16,16 @@ aside {
   border-color: blue;
   padding: 25px;
 }
+
+.city-btn {
+  margin: 10px;
+}
+
+#current-city-date {
+  display: inline;
+}
+
+#day-one {
+  padding: 5px;
+  margin: 50px;
+}
