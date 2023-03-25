@@ -1,5 +1,14 @@
-.container {
+/* .container {
   display: flex;
+} */
+
+header {
+  align-items: center;
+}
+
+#main-header {
+  width: 100%;
+  background-color: mediumpurple;
 }
 
 aside {
@@ -11,8 +20,47 @@ aside {
 }
 
 #city-search {
-  border-width: 1px;
-  border-style: solid;
-  border-color: blue;
-  padding: 25px;
+  padding-right: 25px;
+  float: left;
+}
+
+.city-search-header {
+  display: inline;
+}
+
+#search-city {
+  margin-bottom: 20px;
+}
+
+.city-btn {
+  margin: 10px;
+}
+
+#current-city-date {
+  display: inline;
+}
+
+#day-one {
+  padding: 15px 15px 10px 15px;
+  margin: 15px 15px 15px 15px;
+  background-color: mediumpurple;
+  color: white;
+  width: 225px;
+  display: inline-block;
+}
+
+.five-day-header {
+  padding-left: 10px;
+}
+
+img {
+  align-items: right;
+  padding: 0px;
+  margin: 0px;
+  width: 75px;
+  height: 75px;
+}
+
+#day-one p {
+  margin-bottom: 10px;
 }
