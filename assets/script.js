@@ -62,7 +62,7 @@ $(function () {
     );
     currentDayIcon.attr(
       "src",
-      "http://openweathermap.org/img/wn/" +
+      "https://openweathermap.org/img/wn/" +
         currentData.list[0].weather[0].icon +
         "@2x.png"
     );
@@ -81,7 +81,7 @@ $(function () {
       
       <h2 id="current-fore-city">${fiveDayDate.split(" ")[0]}</h2>
       <img src="${
-        "http://openweathermap.org/img/wn/" +
+        "https://openweathermap.org/img/wn/" +
         fiveDayData.list[day].weather[0].icon +
         "@2x.png"
       }" alt="">
