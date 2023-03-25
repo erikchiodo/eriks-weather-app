@@ -42,4 +42,5 @@ For each search that the user provides it will save to local storage and add to 
 ![Screen Shot 2023-03-25 at 1 43 19 AM](https://user-images.githubusercontent.com/122952630/227699536-df5ef841-003e-41b0-a048-e260c003a3f0.png)
 
 Link to Github Page: https://github.com/erikchiodo/eriks-weather-app
+
 Link to Deployed App: https://erikchiodo.github.io/eriks-weather-app/
