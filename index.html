@@ -14,44 +14,44 @@
 
   <body>
     <header>
-      <h1>Weather App</h1>
+      <h1 id = "main-header">Weather App</h1>
     </header>
 
     <div class="container">
-      <aside class="col-sm-12 col-lg-3" id="city-search">
-        <h1 class="float-left">Search for a City:</h1>
-        <form class="my-2 my-lg-0">
-          <input
-            id="search-city"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button id= "submit-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-        <hr>
-        </hr>
-        <ul id="search-result"></ul>
-      </aside>
-      <div class="col-sm-12 col-lg-9">
-        <div id="current-forecast">
-          <h2 id="current-city-date"></h2><img id="current-icon">
-          <p id="current-temp">Temp:</p>
-          <p id="current-wind">Wind:</p>
-          <p id="current-humidity">Humidity:</p>
-        </div>
-        <div id="future-forecast" class="row">
-          <h2><strong>5-Day Forecast:</strong></h2>
-          <div id="five-day-forecast" class ="row">
+      <div class = "row">
+        <aside class = "col-sm-4 col-lg-4" id="city-search">
+          <h1 class="float-left city-search">Search for a City:</h1>
+          <form class="my-2 my-lg-0">
+            <input
+              id="search-city"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button id= "submit-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+          <hr>
+          </hr>
+          <ul id="search-result"></ul>
+        </aside>
+        <div class="col-sm-8 col-lg-8">
+          <div id="current-forecast">
+            <h2 id="current-city-date"></h2><img id="current-icon">
+            <p id="current-temp">Temp:</p>
+            <p id="current-wind">Wind:</p>
+            <p id="current-humidity">Humidity:</p>
+          </div>
+          <div id="future-forecast" class="row">
+            <h2 class = "five-day-header"><strong>5-Day Forecast:</strong></h2>
+            <div id="five-day-forecast" class ="row"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
