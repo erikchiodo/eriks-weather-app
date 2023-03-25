@@ -13,7 +13,7 @@ $(function () {
 
   function getGeoCode(city) {
     var geoURL =
-      "http://api.openweathermap.org/geo/1.0/direct?q=" +
+      "https://api.openweathermap.org/geo/1.0/direct?q=" +
       city +
       "&appid=ba368f94dc661d16d9e70c0b63cd68a9";
     fetch(geoURL)
@@ -35,7 +35,7 @@ $(function () {
   function getWeather(lat, long) {
     // Replace testURL with weatherURL once you resolve issue with undefined variables
     var weatherURL =
-      "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+      "https://api.openweathermap.org/data/2.5/forecast?lat=" +
       lat +
       "&lon=" +
       long +
