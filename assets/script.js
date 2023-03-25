@@ -119,9 +119,9 @@ $(function () {
   function start(city) {
     console.log(city);
     if (city) {
+      // showCities();
       addCityToLocal(city);
       getGeoCode(city);
-      showCities();
     } else if (city === "") {
       alert("Please Try again");
     }
