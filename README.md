@@ -40,3 +40,6 @@ When you type city in search bar and hit submit, it will retrieve Current and 5-
 For each search that the user provides it will save to local storage and add to page once you refresh (stated above). If you click it will retrieve data for that city. Additionally, I put in several guard clause so if you submit the same city it will display the data without adding the value to local storage and thus creating a duplicate button.
 
 ![Screen Shot 2023-03-25 at 1 43 19 AM](https://user-images.githubusercontent.com/122952630/227699536-df5ef841-003e-41b0-a048-e260c003a3f0.png)
+
+Link to Github Page: https://github.com/erikchiodo/eriks-weather-app
+Link to Deployed App: 
