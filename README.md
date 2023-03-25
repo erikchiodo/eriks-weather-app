@@ -27,9 +27,16 @@ GIVEN a weather dashboard with form inputs:
     > WHEN I click on a city in the search history
     > THEN I am again presented with current and future conditions for that city
 
-## Screenshots
 
-When you come to the page, you see Search, 5-Day Forecast and Current Day Forecast placeholders.
+## Screenshot
 
-![Screen Shot 2023-03-25 at 1 34 18 AM](https://user-images.githubusercontent.com/122952630/227699216-123b50f7-1a2a-4ce8-bee9-cdc0c6b29257.png)
+This is my Homepage. You'll see a Search Bar, Search Button, and some of my previous search results. There is also a sections
+![Screen Shot 2023-03-25 at 12 18 31 AM](https://user-images.githubusercontent.com/122952630/227695698-d2dbb9a5-a720-4928-b518-349a6539d5e5.png)
 
+When you type city in search bar and hit submit, it will retrieve Current and 5-Day Forecast data and display on the page. Just a note, that you need to refresh the page to display the button even though the value is in local storage. You'll see in my code that I have a ShowCities function commented out on ln 122. When I uncomment this line it will show the city as soon as the onclick button is triggered, but you're unable to click the button and have it display the city data. So to adhere to the acceptance criteria I commented out this code. So the user will need to refresh the page to see the search result.
+
+![Screen Shot 2023-03-25 at 1 34 41 AM](https://user-images.githubusercontent.com/122952630/227699236-4d7295eb-8e49-4e3c-aa09-091e528473f5.png)
+
+For each search that the user provides it will save to local storage and add to page once you refresh (stated above). If you click it will retrieve data for that city. Additionally, I put in several guard clause so if you submit the same city it will display the data without adding the value to local storage and thus creating a duplicate button.
+
+![Screen Shot 2023-03-25 at 1 43 19 AM](https://user-images.githubusercontent.com/122952630/227699536-df5ef841-003e-41b0-a048-e260c003a3f0.png)
