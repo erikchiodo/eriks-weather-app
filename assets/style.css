@@ -8,7 +8,8 @@ header {
 
 #main-header {
   width: 100%;
-  background-color: mediumpurple;
+  background-color: rgb(112, 128, 144);
+  color: white;
 }
 
 aside {
@@ -43,7 +44,7 @@ aside {
 #day-one {
   padding: 15px 15px 10px 15px;
   margin: 15px 15px 15px 15px;
-  background-color: mediumpurple;
+  background-color: rgb(112, 128, 144);
   color: white;
   width: 225px;
   display: inline-block;

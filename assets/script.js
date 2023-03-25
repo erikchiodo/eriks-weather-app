@@ -121,6 +121,7 @@ $(function () {
     if (city) {
       addCityToLocal(city);
       getGeoCode(city);
+      showCities();
     } else if (city === "") {
       alert("Please Try again");
     }
